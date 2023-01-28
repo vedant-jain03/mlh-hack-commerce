@@ -35,7 +35,6 @@ button {
   cursor: pointer;
   font-size: 14px;
   box-sizing: border-box;
-  position: relative;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -109,4 +108,29 @@ button {
 }
 .total h1, h3 {
   margin: 0%;
+}
+.popup-container {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.3);
+  top: -10px;
+}
+.popup-wrapper {
+  width: 380px;
+  height: 280px;
+  padding: 20px;
+  background: #1c223a;
+  border-radius: 3px;
+}
+.cross {
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  padding: 10px;
+  border-radius: 50%;
+  padding-bottom: 7px;
 }

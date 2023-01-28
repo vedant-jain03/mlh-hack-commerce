@@ -6,7 +6,26 @@ import { AiOutlineArrowRight } from 'react-icons/ai'
 const APP_ID = "f16f5438";
 const APP_KEY = "d85bee42b820d43f82810b7812fe3d2d";
 
-function CartContainer({ itemList, total, deleteItem }) {
+function DiscountPopup({ setDiscPopup }) {
+  return (
+    <div className="popup-container">
+      <div className="popup-wrapper" style={{ marginTop: '0', position: 'relative' }}>
+        <h2 style={{ marginBottom: '10px' }}>Coupens Available</h2>
+        <div className="pw-item" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', margin: '20px 0' }}>
+          <span>MLHHACK</span>
+          <button>Apply</button>
+        </div>
+        <div className="pw-item" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', margin: '20px 0' }}>
+          <span>MLHHACK</span>
+          <button>Apply</button>
+        </div>
+        <button className='cross' onClick={() => setDiscPopup(false)}><RxCross1 /></button>
+      </div>
+    </div>
+  )
+}
+
+function CartContainer({ itemList, total, deleteItem, setDiscPopup }) {
   return (
     <div className="wrapper">
       <div className="itemLists">
@@ -26,7 +45,12 @@ function CartContainer({ itemList, total, deleteItem }) {
           <h1>Rs. {total}</h1>
         </div>
       </div>
-      <button className='sec-btn' style={{ marginTop: '10px', display: 'flex', alignItems: 'center' }}>Checkout <AiOutlineArrowRight style={{ marginLeft: '10px', fontSize: '16px', cursor: 'pointer' }} /></button>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <button className='sec-btn' style={{ marginTop: '10px', display: 'flex', alignItems: 'center' }} onClick={() => {
+          setDiscPopup(true)
+        }} >Add coupen<AiOutlineArrowRight style={{ marginLeft: '10px', fontSize: '16px', cursor: 'pointer' }} /></button>
+        <button className='sec-btn' style={{ marginTop: '10px', display: 'flex', alignItems: 'center' }}>Checkout <AiOutlineArrowRight style={{ marginLeft: '10px', fontSize: '16px', cursor: 'pointer' }} /></button>
+      </div>
     </div>
   )
 }
@@ -37,6 +61,7 @@ function Dashboard() {
   const [food, setFood] = useState("");
   const [loading, setLoading] = useState(false);
   const [total, setTotal] = useState(0);
+  const [discountPopup, setDiscPopup] = useState(false);
   const fetch = async (e) => {
     setLoading(true);
     e.preventDefault();
@@ -70,6 +95,7 @@ function Dashboard() {
   }
   return (
     <div>
+      {discountPopup ? <DiscountPopup setDiscPopup={setDiscPopup} /> : null}
       <div className="header">
         <h1 className='heading'>Kitchen Cart</h1>
         <h3 className='subheading'>"From recipe to cart, in just a few clicks"</h3>
@@ -80,18 +106,18 @@ function Dashboard() {
       </div>
       <div className='cartContainer'>
         {
-            (
-              loading ? <h3>Cooking . . .</h3> :
-                (
-                  itemList.length === 0 ? null :
-                    (
-                      <div>
-                        <h3>Here is your cart for "{resultFood}"</h3>
-                        <CartContainer itemList={itemList} total={total} deleteItem={deleteItem} />
-                      </div>
-                    )
-                )
-            )
+          (
+            loading ? <h3>Cooking . . .</h3> :
+              (
+                itemList.length === 0 ? null :
+                  (
+                    <div>
+                      <h3 style={{ marginBottom: '10px' }} >Here is your cart for "{resultFood}"</h3>
+                      <CartContainer itemList={itemList} total={total} deleteItem={deleteItem} setDiscPopup={setDiscPopup} />
+                    </div>
+                  )
+              )
+          )
         }
       </div>
     </div>
