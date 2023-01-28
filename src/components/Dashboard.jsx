@@ -16,7 +16,7 @@ function DiscountPopup({ setDiscPopup }) {
           <button>Apply</button>
         </div>
         <div className="pw-item" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', margin: '20px 0' }}>
-          <span>MLHHACK</span>
+          <span>MLH_HACKS</span>
           <button>Apply</button>
         </div>
         <button className='cross' onClick={() => setDiscPopup(false)}><RxCross1 /></button>
@@ -48,7 +48,7 @@ function CartContainer({ itemList, total, deleteItem, setDiscPopup }) {
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <button className='sec-btn' style={{ marginTop: '10px', display: 'flex', alignItems: 'center' }} onClick={() => {
           setDiscPopup(true)
-        }} >Add coupen<AiOutlineArrowRight style={{ marginLeft: '10px', fontSize: '16px', cursor: 'pointer' }} /></button>
+        }} >Add coupon<AiOutlineArrowRight style={{ marginLeft: '10px', fontSize: '16px', cursor: 'pointer' }} /></button>
         <button className='sec-btn' style={{ marginTop: '10px', display: 'flex', alignItems: 'center' }}>Checkout <AiOutlineArrowRight style={{ marginLeft: '10px', fontSize: '16px', cursor: 'pointer' }} /></button>
       </div>
     </div>
