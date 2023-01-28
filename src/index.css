@@ -27,18 +27,18 @@ code {
 
 button {
   display: inline-block;
-    background: #c7d8eb;
-    border-radius: 2px;
-    border: none;
-    color: #1c223a;
-    padding: 10px 25px;
-    cursor: pointer;
-    font-size: 16px;
-    box-sizing: border-box;
-    position: relative;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+  background: #c7d8eb;
+  border-radius: 33px;
+  border: none;
+  color: #1c223a;
+  padding: 10px 25px;
+  cursor: pointer;
+  font-size: 14px;
+  box-sizing: border-box;
+  position: relative;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .heading {
   font-size: 60px;

@@ -1,4 +1,5 @@
 import React from 'react'
+import LogoutButton from './Logout'
 
 function Navbar() {
   return (
@@ -8,7 +9,7 @@ function Navbar() {
       </div>
       <div className="right">
         <span style={{marginRight: '10px'}}>Vedant Jain</span>
-        <button>Logout</button>
+        <LogoutButton />
       </div>
     </div>
   )
