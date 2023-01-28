@@ -134,3 +134,6 @@ button {
   border-radius: 50%;
   padding-bottom: 7px;
 }
+.total-discount h1, h2, h3 {
+  margin: 0;
+}

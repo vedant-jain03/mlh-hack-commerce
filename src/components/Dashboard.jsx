@@ -6,18 +6,24 @@ import { AiOutlineArrowRight } from 'react-icons/ai'
 const APP_ID = "f16f5438";
 const APP_KEY = "d85bee42b820d43f82810b7812fe3d2d";
 
-function DiscountPopup({ setDiscPopup }) {
+function DiscountPopup({ setDiscPopup, setDiscount }) {
   return (
     <div className="popup-container">
       <div className="popup-wrapper" style={{ marginTop: '0', position: 'relative' }}>
         <h2 style={{ marginBottom: '10px' }}>Coupens Available</h2>
         <div className="pw-item" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', margin: '20px 0' }}>
           <span>MLHHACK</span>
-          <button>Apply</button>
+          <button onClick={() => {
+            setDiscount(120);
+            setDiscPopup(false)
+          }}>Apply</button>
         </div>
         <div className="pw-item" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', margin: '20px 0' }}>
-          <span>MLH_HACKS</span>
-          <button>Apply</button>
+          <span>COMMERCEHACK</span>
+          <button onClick={() => {
+            setDiscount(100);
+            setDiscPopup(false)
+          }}>Apply</button>
         </div>
         <button className='cross' onClick={() => setDiscPopup(false)}><RxCross1 /></button>
       </div>
@@ -25,7 +31,7 @@ function DiscountPopup({ setDiscPopup }) {
   )
 }
 
-function CartContainer({ itemList, total, deleteItem, setDiscPopup }) {
+function CartContainer({ itemList, total, deleteItem, setDiscPopup, discount }) {
   return (
     <div className="wrapper">
       <div className="itemLists">
@@ -40,10 +46,28 @@ function CartContainer({ itemList, total, deleteItem, setDiscPopup }) {
             </div>
           ))
         }
-        <div className='total'>
-          <h3>Total</h3>
-          <h1>Rs. {total}</h1>
-        </div>
+        {
+          discount === 0 ?
+            <div className='total'>
+              <h3>Total</h3>
+              <h1>Rs. {total}</h1>
+            </div>
+            :
+            <div style={{borderTop: '1px solid'}} className='total-discount'>
+              <div style={{display: 'flex', alignItems:'center', justifyContent: 'space-between', marginTop: '10px'}}>
+                <h3>Total</h3>
+                <h2>Rs. {total}</h2>
+              </div>
+              <div style={{display: 'flex', alignItems:'center', justifyContent: 'space-between'}}>
+                <h3>Discount</h3>
+                <h2>- {discount}</h2>
+              </div>
+              <div className='total'>
+                <h3>Grand Total</h3>
+                <h1>Rs. {eval(total - discount)}</h1>
+              </div>
+            </div>
+        }
       </div>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <button className='sec-btn' style={{ marginTop: '10px', display: 'flex', alignItems: 'center' }} onClick={() => {
@@ -62,6 +86,7 @@ function Dashboard() {
   const [loading, setLoading] = useState(false);
   const [total, setTotal] = useState(0);
   const [discountPopup, setDiscPopup] = useState(false);
+  const [discount, setDiscount] = useState(0);
   const fetch = async (e) => {
     setLoading(true);
     e.preventDefault();
@@ -95,7 +120,7 @@ function Dashboard() {
   }
   return (
     <div>
-      {discountPopup ? <DiscountPopup setDiscPopup={setDiscPopup} /> : null}
+      {discountPopup ? <DiscountPopup setDiscPopup={setDiscPopup} setDiscount={setDiscount} /> : null}
       <div className="header">
         <h1 className='heading'>Kitchen Cart</h1>
         <h3 className='subheading'>"From recipe to cart, in just a few clicks"</h3>
@@ -113,7 +138,7 @@ function Dashboard() {
                   (
                     <div>
                       <h3 style={{ marginBottom: '10px' }} >Here is your cart for "{resultFood}"</h3>
-                      <CartContainer itemList={itemList} total={total} deleteItem={deleteItem} setDiscPopup={setDiscPopup} />
+                      <CartContainer itemList={itemList} total={total} deleteItem={deleteItem} setDiscPopup={setDiscPopup} discount={discount} />
                     </div>
                   )
               )
