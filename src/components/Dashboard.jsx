@@ -9,6 +9,22 @@ import Recommendation from './Recommendation';
 const APP_ID = "f16f5438";
 const APP_KEY = "d85bee42b820d43f82810b7812fe3d2d";
 
+function Confimation({ setSuccessPopup }) {
+  return (
+    <div className="popup-container">
+      <div className="popup-wrapper" style={{ marginTop: '0', position: 'relative' }}>
+        <svg id="successAnimation" class="animated" xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 70 70">
+          <path id="successAnimationResult" fill="#D8D8D8" d="M35,60 C21.1928813,60 10,48.8071187 10,35 C10,21.1928813 21.1928813,10 35,10 C48.8071187,10 60,21.1928813 60,35 C60,48.8071187 48.8071187,60 35,60 Z M23.6332378,33.2260427 L22.3667622,34.7739573 L34.1433655,44.40936 L47.776114,27.6305926 L46.223886,26.3694074 L33.8566345,41.59064 L23.6332378,33.2260427 Z" />
+          <circle id="successAnimationCircle" cx="35" cy="35" r="24" stroke="#979797" stroke-width="2" stroke-linecap="round" fill="transparent" />
+          <polyline id="successAnimationCheck" stroke="#979797" stroke-width="2" points="23 34 34 43 47 27" fill="transparent" />
+        </svg>
+        <h2>Order Placed!</h2>
+        <button className='cross' onClick={() => setSuccessPopup(false)}><RxCross1 /></button>
+      </div>
+    </div>
+  )
+}
+
 function DiscountPopup({ setDiscPopup, setDiscount }) {
   return (
     <div className="popup-container">
@@ -34,7 +50,7 @@ function DiscountPopup({ setDiscPopup, setDiscount }) {
   )
 }
 
-function CheckoutPopup({ setCheckoutPopup, total, discount }) {
+function CheckoutPopup({ setCheckoutPopup, total, discount, setSuccessPopup, setItemList }) {
   return (
     <div className="popup-container">
       <div className="popup-wrapper" style={{ marginTop: '0', position: 'relative' }}>
@@ -47,15 +63,15 @@ function CheckoutPopup({ setCheckoutPopup, total, discount }) {
           <span>Discount</span>
           <span>- {discount}</span>
         </div>
-        <div className="pw-item" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', margin: '20px 0' }}>
-
-          <span>Grand Total</span>
-          <span>Rs. {eval(total - discount)}</span>
+        <div className='total'>
+          <h3>Grand Total</h3>
+          <h1>Rs. {eval(total - discount)}</h1>
         </div>
-
         <div className="pw-item" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', margin: '20px 111px' }}>
           <button className='sec-btn' style={{ marginTop: '10px', display: 'flex', alignItems: 'center' }} onClick={() => {
-            setCheckoutPopup(false)
+            setCheckoutPopup(false);
+            setSuccessPopup(true);
+            setItemList([]);
           }}> Pay <AiOutlineArrowRight style={{ marginLeft: '10px' }} /></button>
         </div>
         <button className='cross' onClick={() => setCheckoutPopup(false)}><RxCross1 /></button>
@@ -127,6 +143,7 @@ function Dashboard() {
   const [discountPopup, setDiscPopup] = useState(false);
   const [checkoutPopup, setCheckoutPopup] = useState(false);
   const [discount, setDiscount] = useState(0);
+  const [successPopup, setSuccessPopup] = useState(false);
   const fetch = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -181,9 +198,10 @@ function Dashboard() {
   }
   return (
     <div style={!isAuthenticated ? { display: 'flex', alignItems: 'center', flexDirection: 'column' } : {}}>
+      {successPopup ? <Confimation setSuccessPopup={setSuccessPopup} /> : null}
       {discountPopup ? <DiscountPopup setDiscPopup={setDiscPopup} setDiscount={setDiscount} /> : null}
       {checkoutPopup ? <CheckoutPopup setCheckoutPopup={setCheckoutPopup} total={total} discount={discount}
-      /> : null}
+      setSuccessPopup={setSuccessPopup} setItemList={setItemList} /> : null}
       <div className="header">
         <h1 className='heading'>KitchenCart</h1>
         <h3 className='subheading'>"From recipe to cart, in just a few clicks"</h3>
