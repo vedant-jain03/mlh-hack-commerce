@@ -92,8 +92,9 @@ function Dashboard() {
   const [discountPopup, setDiscPopup] = useState(false);
   const [discount, setDiscount] = useState(0);
   const fetch = async (e) => {
-    setLoading(true);
     e.preventDefault();
+    setLoading(true);
+    console.log(food);
     const API = `https://api.edamam.com/api/recipes/v2?q=${food}&type=public&app_id=f16f5438&app_key=d85bee42b820d43f82810b7812fe3d2d`;
     let res = await axios.get(API);
     let ing = res.data;
@@ -108,7 +109,27 @@ function Dashboard() {
     await setItemList(ing.hits[0].recipe.ingredients);
     setLoading(false);
     setResultFood(food);
-    setFood("");
+  }
+  const setRecommendation = async (name, e) => {
+    console.log(name);
+    await setFood(name);
+    e.preventDefault();
+    setLoading(true);
+    console.log(name);
+    const API = `https://api.edamam.com/api/recipes/v2?q=${name}&type=public&app_id=f16f5438&app_key=d85bee42b820d43f82810b7812fe3d2d`;
+    let res = await axios.get(API);
+    let ing = res.data;
+    const temp = ing.hits[0].recipe.ingredients;
+    let subtotal = 0;
+    temp.forEach((element) => {
+      element.cost = Math.floor(100 + Math.random() * 900);
+      subtotal += element.cost;
+    })
+    console.log(temp);
+    setTotal(subtotal);
+    await setItemList(ing.hits[0].recipe.ingredients);
+    setLoading(false);
+    setResultFood(name);
   }
   const deleteItem = async (id) => {
     console.log(id);
@@ -153,7 +174,7 @@ function Dashboard() {
                 )
               }
             </div>
-            <Recommendation setFood={setFood} fetch={fetch} />
+            <Recommendation setRecommendation={setRecommendation} />
           </div>
       }
     </div>
