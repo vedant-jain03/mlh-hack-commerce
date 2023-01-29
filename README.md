@@ -1,5 +1,7 @@
-
 <h1 align="center"> ✨ Welcome to KitchenCart 🛒 🍱 ✨ </h1>
+
+![chrome-capture-2023-0-29](https://user-images.githubusercontent.com/77020164/215315627-f70a8e19-6bbc-4e76-9785-07e1c32637d5.gif)
+
 
 ## Inspiration 🧑‍🎨
 
@@ -85,3 +87,4 @@
 
 [![Uses Git](https://forthebadge.com/images/badges/uses-git.svg)](https://github.com/vedant-jain03/mlh-hack-commerce) 
 [![forthebadge made-with-javascript](http://ForTheBadge.com/images/badges/made-with-javascript.svg)](https://github.com/vedant-jain03/mlh-hack-commerce)
+
