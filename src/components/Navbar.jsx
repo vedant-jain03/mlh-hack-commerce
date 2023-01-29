@@ -13,7 +13,7 @@ function Navbar() {
       </div>
       <div className="right"
       style={{"display":"flex", "alignItems":"center"}}>
-      { isAuthenticated ? <><Profile /><LogoutButton/></> : <LoginButton />}
+      { isAuthenticated ? <><Profile /><LogoutButton/></> : null}
       </div>
     </div>
   )

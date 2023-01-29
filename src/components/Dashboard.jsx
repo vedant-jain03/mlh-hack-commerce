@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import { RxCross1 } from 'react-icons/rx'
 import { AiOutlineArrowRight } from 'react-icons/ai'
+import { useAuth0 } from '@auth0/auth0-react';
+import LoginButton from './Login';
+import Recommendation from './Recommendation';
 
 const APP_ID = "f16f5438";
 const APP_KEY = "d85bee42b820d43f82810b7812fe3d2d";
@@ -53,12 +56,12 @@ function CartContainer({ itemList, total, deleteItem, setDiscPopup, discount }) 
               <h1>Rs. {total}</h1>
             </div>
             :
-            <div style={{borderTop: '1px solid'}} className='total-discount'>
-              <div style={{display: 'flex', alignItems:'center', justifyContent: 'space-between', marginTop: '10px'}}>
+            <div style={{ borderTop: '1px solid' }} className='total-discount'>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginTop: '10px' }}>
                 <h3>Total</h3>
                 <h2>Rs. {total}</h2>
               </div>
-              <div style={{display: 'flex', alignItems:'center', justifyContent: 'space-between'}}>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                 <h3>Discount</h3>
                 <h2>- {discount}</h2>
               </div>
@@ -80,6 +83,7 @@ function CartContainer({ itemList, total, deleteItem, setDiscPopup, discount }) 
 }
 
 function Dashboard() {
+  const { isAuthenticated } = useAuth0();
   const [itemList, setItemList] = useState([]);
   const [resultFood, setResultFood] = useState("");
   const [food, setFood] = useState("");
@@ -119,32 +123,39 @@ function Dashboard() {
     setItemList(newItemList);
   }
   return (
-    <div>
+    <div style={!isAuthenticated ? { display: 'flex', alignItems: 'center', flexDirection: 'column' } : {}}>
       {discountPopup ? <DiscountPopup setDiscPopup={setDiscPopup} setDiscount={setDiscount} /> : null}
       <div className="header">
         <h1 className='heading'>Kitchen Cart</h1>
         <h3 className='subheading'>"From recipe to cart, in just a few clicks"</h3>
       </div>
-      <div className='input-wrapper'>
-        <input type="text" value={food} onChange={(e) => setFood(e.target.value)} />
-        <button className='sec-btn' onClick={(e) => fetch(e)}>Go</button>
-      </div>
-      <div className='cartContainer'>
-        {
-          (
-            loading ? <h3>Cooking . . .</h3> :
-              (
-                itemList.length === 0 ? null :
-                  (
-                    <div>
-                      <h3 style={{ marginBottom: '10px' }} >Here is your cart for "{resultFood}"</h3>
-                      <CartContainer itemList={itemList} total={total} deleteItem={deleteItem} setDiscPopup={setDiscPopup} discount={discount} />
-                    </div>
-                  )
-              )
-          )
-        }
-      </div>
+      {
+        !isAuthenticated ? <LoginButton />
+          :
+          <div>
+            <div className='input-wrapper'>
+              <input type="text" value={food} onChange={(e) => setFood(e.target.value)} />
+              <button className='sec-btn' onClick={(e) => fetch(e)}>Go</button>
+            </div>
+            <div className='cartContainer'>
+              {
+                (
+                  loading ? <h3>Cooking . . .</h3> :
+                    (
+                      itemList.length === 0 ? null :
+                        (
+                          <div>
+                            <h3 style={{ marginBottom: '10px' }} >Here is your cart for "{resultFood}"</h3>
+                            <CartContainer itemList={itemList} total={total} deleteItem={deleteItem} setDiscPopup={setDiscPopup} discount={discount} />
+                          </div>
+                        )
+                    )
+                )
+              }
+            </div>
+            <Recommendation setFood={setFood} fetch={fetch} />
+          </div>
+      }
     </div>
   )
 }

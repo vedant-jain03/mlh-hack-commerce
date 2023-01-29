@@ -38,6 +38,7 @@ button {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  font-family: inherit;
 }
 .heading {
   font-size: 60px;
@@ -136,4 +137,37 @@ button {
 }
 .total-discount h1, h2, h3 {
   margin: 0;
+}
+.loginButton {
+  padding: 15px 50px;
+  border-radius: 4px;
+  font-size: 20px;
+  font-weight: bold;
+  font-family: inherit;
+  display: flex;
+  align-items: center;
+}
+.recom {
+  width: 400px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  border: 2px solid #c7d8eb;
+  border-radius: 4px;
+  background: rgba(0,0,0,0.5);
+  margin: 20px;
+}
+.r-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 40px;
+}
+.r-wrapper {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 80%;
 }
