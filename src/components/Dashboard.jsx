@@ -34,7 +34,37 @@ function DiscountPopup({ setDiscPopup, setDiscount }) {
   )
 }
 
-function CartContainer({ itemList, total, deleteItem, setDiscPopup, discount }) {
+function CheckoutPopup({ setCheckoutPopup, total, discount }) {
+  return (
+    <div className="popup-container">
+      <div className="popup-wrapper" style={{ marginTop: '0', position: 'relative' }}>
+        <h2 style={{ marginBottom: '10px' }}>Checkout Successful</h2>
+        <div className="pw-item" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', margin: '20px 0' }}>
+          <span>Total</span>
+          <span>Rs. {total}</span>
+        </div>
+        <div className="pw-item" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', margin: '20px 0' }}>
+          <span>Discount</span>
+          <span>- {discount}</span>
+        </div>
+        <div className="pw-item" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', margin: '20px 0' }}>
+
+          <span>Grand Total</span>
+          <span>Rs. {eval(total - discount)}</span>
+        </div>
+
+        <div className="pw-item" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', margin: '20px 111px' }}>
+          <button className='sec-btn' style={{ marginTop: '10px', display: 'flex', alignItems: 'center' }} onClick={() => {
+            setCheckoutPopup(false)
+          }}> Pay <AiOutlineArrowRight style={{ marginLeft: '10px' }} /></button>
+        </div>
+        <button className='cross' onClick={() => setCheckoutPopup(false)}><RxCross1 /></button>
+      </div>
+    </div>
+  )
+}
+
+function CartContainer({ itemList, total, deleteItem, setDiscPopup, setCheckoutPopup, discount }) {
   return (
     <div className="wrapper">
       <div className="itemLists">
@@ -76,7 +106,12 @@ function CartContainer({ itemList, total, deleteItem, setDiscPopup, discount }) 
         <button className='sec-btn' style={{ marginTop: '10px', display: 'flex', alignItems: 'center' }} onClick={() => {
           setDiscPopup(true)
         }} >Add coupon<AiOutlineArrowRight style={{ marginLeft: '10px', fontSize: '16px', cursor: 'pointer' }} /></button>
-        <button className='sec-btn' style={{ marginTop: '10px', display: 'flex', alignItems: 'center' }}>Checkout <AiOutlineArrowRight style={{ marginLeft: '10px', fontSize: '16px', cursor: 'pointer' }} /></button>
+        <button className='sec-btn' style={{ marginTop: '10px', display: 'flex', alignItems: 'center' }}
+          onClick={() => {
+            setCheckoutPopup(true)
+          }}
+        >
+          Checkout <AiOutlineArrowRight style={{ marginLeft: '10px', fontSize: '16px', cursor: 'pointer' }} /></button>
       </div>
     </div>
   )
@@ -90,6 +125,7 @@ function Dashboard() {
   const [loading, setLoading] = useState(false);
   const [total, setTotal] = useState(0);
   const [discountPopup, setDiscPopup] = useState(false);
+  const [checkoutPopup, setCheckoutPopup] = useState(false);
   const [discount, setDiscount] = useState(0);
   const fetch = async (e) => {
     e.preventDefault();
@@ -146,6 +182,8 @@ function Dashboard() {
   return (
     <div style={!isAuthenticated ? { display: 'flex', alignItems: 'center', flexDirection: 'column' } : {}}>
       {discountPopup ? <DiscountPopup setDiscPopup={setDiscPopup} setDiscount={setDiscount} /> : null}
+      {checkoutPopup ? <CheckoutPopup setCheckoutPopup={setCheckoutPopup} total={total} discount={discount}
+      /> : null}
       <div className="header">
         <h1 className='heading'>KitchenCart</h1>
         <h3 className='subheading'>"From recipe to cart, in just a few clicks"</h3>
@@ -167,7 +205,9 @@ function Dashboard() {
                         (
                           <div>
                             <h3 style={{ marginBottom: '10px' }} >Here is your cart for "{resultFood}"</h3>
-                            <CartContainer itemList={itemList} total={total} deleteItem={deleteItem} setDiscPopup={setDiscPopup} discount={discount} />
+                            <CartContainer itemList={itemList} total={total} deleteItem={deleteItem} setDiscPopup={setDiscPopup}
+                              setCheckoutPopup={setCheckoutPopup}
+                              discount={discount} />
                           </div>
                         )
                     )
