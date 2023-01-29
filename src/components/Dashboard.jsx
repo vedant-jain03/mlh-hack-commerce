@@ -10,7 +10,7 @@ function DiscountPopup({ setDiscPopup, setDiscount }) {
   return (
     <div className="popup-container">
       <div className="popup-wrapper" style={{ marginTop: '0', position: 'relative' }}>
-        <h2 style={{ marginBottom: '10px' }}>Coupens Available</h2>
+        <h2 style={{ marginBottom: '10px' }}>Coupons Available</h2>
         <div className="pw-item" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', margin: '20px 0' }}>
           <span>MLHHACK</span>
           <button onClick={() => {
@@ -122,7 +122,7 @@ function Dashboard() {
     <div>
       {discountPopup ? <DiscountPopup setDiscPopup={setDiscPopup} setDiscount={setDiscount} /> : null}
       <div className="header">
-        <h1 className='heading'>Kitchen Cart</h1>
+        <h1 className='heading'>KitchenCart</h1>
         <h3 className='subheading'>"From recipe to cart, in just a few clicks"</h3>
       </div>
       <div className='input-wrapper'>

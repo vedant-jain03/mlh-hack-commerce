@@ -110,7 +110,7 @@ button {
   margin: 0%;
 }
 .popup-container {
-  position: absolute;
+  position: fixed;
   width: 100vw;
   height: 100vh;
   display: flex;
