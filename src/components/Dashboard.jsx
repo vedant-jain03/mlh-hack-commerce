@@ -6,9 +6,6 @@ import { useAuth0 } from '@auth0/auth0-react';
 import LoginButton from './Login';
 import Recommendation from './Recommendation';
 
-const APP_ID = "f16f5438";
-const APP_KEY = "d85bee42b820d43f82810b7812fe3d2d";
-
 function Confimation({ setSuccessPopup }) {
   return (
     <div className="popup-container">
@@ -147,8 +144,7 @@ function Dashboard() {
   const fetch = async (e) => {
     e.preventDefault();
     setLoading(true);
-    console.log(food);
-    const API = `https://api.edamam.com/api/recipes/v2?q=${food}&type=public&app_id=f16f5438&app_key=d85bee42b820d43f82810b7812fe3d2d`;
+    const API = `https://api.edamam.com/api/recipes/v2?q=${food}&type=public&app_id=${process.env.REACT_APP_ID}&app_key=${process.env.REACT_APP_KEY}`;
     let res = await axios.get(API);
     let ing = res.data;
     const temp = ing.hits[0].recipe.ingredients;
@@ -157,18 +153,15 @@ function Dashboard() {
       element.cost = Math.floor(100 + Math.random() * 900);
       subtotal += element.cost;
     })
-    console.log(temp);
     setTotal(subtotal);
     await setItemList(ing.hits[0].recipe.ingredients);
     setLoading(false);
     setResultFood(food);
   }
   const setRecommendation = async (name, e) => {
-    console.log(name);
     await setFood(name);
     e.preventDefault();
     setLoading(true);
-    console.log(name);
     const API = `https://api.edamam.com/api/recipes/v2?q=${name}&type=public&app_id=f16f5438&app_key=d85bee42b820d43f82810b7812fe3d2d`;
     let res = await axios.get(API);
     let ing = res.data;
@@ -178,14 +171,12 @@ function Dashboard() {
       element.cost = Math.floor(100 + Math.random() * 900);
       subtotal += element.cost;
     })
-    console.log(temp);
     setTotal(subtotal);
     await setItemList(ing.hits[0].recipe.ingredients);
     setLoading(false);
     setResultFood(name);
   }
   const deleteItem = async (id) => {
-    console.log(id);
     const newItemList = itemList.filter((item, index) => {
       return (index !== id)
     })

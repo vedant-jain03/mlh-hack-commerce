@@ -237,7 +237,7 @@ button {
 }
 
 #successAnimation.animated {
-  animation: 1s ease-out 0s 1 both scaleAnimation;
+  animation: 2s ease-out 0s 1 both scaleAnimation;
 }
 
 #successAnimation.animated #successAnimationCircle {
