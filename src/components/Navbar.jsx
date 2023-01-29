@@ -3,6 +3,7 @@ import LogoutButton from './Logout'
 import LoginButton from './Login'
 import Profile from './Profile'
 import { useAuth0 } from '@auth0/auth0-react'
+import logo from '../img/logo.png'
 
 function Navbar() {
   const { isAuthenticated } = useAuth0();
