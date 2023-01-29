@@ -66,7 +66,7 @@
 * We are planning to add the feature of generating a grocery list based on the upcoming week's meals so that users can plan their grocery purchases in advance.
 * We plan to add more options for dietary restrictions and food allergies so that users with specific dietary needs can find recipes that are appropriate for them.
 * We plan to improve the user experience by adding more personalization features such as recipe recommendations based on the user's history and preferences.
-* We plan to develop a mobile app so that users can access RecipeCart on the go.
+* We plan to develop a mobile app so that users can access KitchenCart on the go.
 * We are also planning to integrate with other cooking devices like smart ovens and cookers to make the cooking process even more seamless for our users.
 
 ## UI of the project 😎
