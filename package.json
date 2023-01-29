@@ -1,6 +1,7 @@
 {
   "name": "mlh-hack-commerce",
   "version": "0.1.0",
+  "homepage": "https://vedant-jain03.github.io/mlh-hack-commerce",
   "private": true,
   "dependencies": {
     "@auth0/auth0-react": "^2.0.0",
@@ -15,10 +16,12 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+      "predeploy": "npm run build",
+      "deploy": "gh-pages -d build",
+      "start": "react-scripts start",
+      "build": "react-scripts build",
+      "test": "react-scripts test",
+      "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
@@ -37,5 +40,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^5.0.0"
   }
 }
