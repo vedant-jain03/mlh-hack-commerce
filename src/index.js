@@ -9,7 +9,7 @@ ReactDOM.render(
     domain="dev-wom8eixet6jpwh6v.us.auth0.com"
     clientId="qeYsXkQKWKPOsn08KnJktMUEmnBRNw0T"
     authorizationParams={{
-      redirect_uri: window.location.origin
+      redirect_uri: 'https://vedant-jain03.github.io/mlh-hack-commerce'
     }}
   >
     <App />
