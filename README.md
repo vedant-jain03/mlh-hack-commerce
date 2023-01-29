@@ -1,10 +1,16 @@
+<<<<<<< HEAD
 <h1 align="center"> ✨ Welcome to KitchenCart 🛒 🍱 ✨ 
-
-![](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
-</h1>
+=======
+<h1 align="center"> ✨ Welcome to KitchenCart 🛒 🍱 ✨ </h1>
+>>>>>>> 8f0859d922cd77f47c676692be5d7d8e5c4e6cd2
 
 ![chrome-capture-2023-0-29](https://user-images.githubusercontent.com/77020164/215315627-f70a8e19-6bbc-4e76-9785-07e1c32637d5.gif)
 
+<<<<<<< HEAD
+![chrome-capture-2023-0-29](https://user-images.githubusercontent.com/77020164/215315627-f70a8e19-6bbc-4e76-9785-07e1c32637d5.gif)
+
+=======
+>>>>>>> 8f0859d922cd77f47c676692be5d7d8e5c4e6cd2
 
 ## Inspiration 🧑‍🎨
 
