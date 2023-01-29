@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/mlh-hack-commerce/static/css/main.cb7d8e5f.css",
+    "main.js": "/mlh-hack-commerce/static/js/main.86743c7b.js",
+    "static/media/logo.png": "/mlh-hack-commerce/static/media/logo.6aac7c87bc90b8d34ee9.png",
+    "index.html": "/mlh-hack-commerce/index.html",
+    "main.cb7d8e5f.css.map": "/mlh-hack-commerce/static/css/main.cb7d8e5f.css.map",
+    "main.86743c7b.js.map": "/mlh-hack-commerce/static/js/main.86743c7b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.cb7d8e5f.css",
+    "static/js/main.86743c7b.js"
+  ]
+}
