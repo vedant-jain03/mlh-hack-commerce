@@ -1,7 +1,6 @@
 <h1 align="center"> ✨ Welcome to KitchenCart 🛒 🍱 ✨ </h1>
 
-![chrome-capture-2023-0-29](https://user-images.githubusercontent.com/77020164/215315627-f70a8e19-6bbc-4e76-9785-07e1c32637d5.gif)
-
+![chrome-capture-2023-0-29](https://user-images.githubusercontent.com/76901313/215321722-5fac0dbc-39dc-4bfb-a132-9bcc47de61a7.gif)
 
 ## Inspiration 🧑‍🎨
 
