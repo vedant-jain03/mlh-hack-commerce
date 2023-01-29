@@ -144,7 +144,7 @@ function Dashboard() {
   const fetch = async (e) => {
     e.preventDefault();
     setLoading(true);
-    const API = `https://api.edamam.com/api/recipes/v2?q=${food}&type=public&app_id=${process.env.REACT_APP_ID}&app_key=${process.env.REACT_APP_KEY}`;
+    const API = `https://api.edamam.com/api/recipes/v2?q=${food}&type=public&app_id=f16f5438&app_key=d85bee42b820d43f82810b7812fe3d2d`;
     let res = await axios.get(API);
     let ing = res.data;
     const temp = ing.hits[0].recipe.ingredients;
