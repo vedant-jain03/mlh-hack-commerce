@@ -1,70 +1,71 @@
-# Getting Started with Create React App
+<h1 align="center"> ✨ Welcome to RecipeCart 🛒 🍱 ✨ 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
+</h1>
 
-## Available Scripts
+## Inspiration
 
-In the project directory, you can run:
+1. The inspiration behind building this platform was to help busy individuals and families easily plan and shop for their meals. We noticed that meal planning and grocery shopping could be a time-consuming and overwhelming task, especially for those with busy schedules.
+2. We were inspired by our own struggles with meal planning and grocery shopping and realized that there must be a better way to make this process more efficient and convenient.
+3. We saw a gap in the market for a platform that simplifies the process of meal planning and grocery shopping and set out to build a solution that addresses this need.
+4. We wanted to create a tool that saves time and effort and makes it easier for people to eat healthy and delicious meals.
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## What it does
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+* The platform allows users to input a recipe and generates a shopping list of all the ingredients needed for that recipe.
+* Users can review and modify the list before adding the items to their cart and checking out to complete their purchase.
+* The platform allows users to search for recipes by ingredients, cuisine, and dietary restrictions.
+* It also allows users to save their favorite recipes for easy access later.
+* Users can also create custom shopping lists for items they need to purchase regularly.
+* It also allows users to track their purchase history.
+* It also suggests recipes based on the ingredients in the user's cart.
 
-### `npm test`
+## How we built it
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* The front end of the platform was built using React.js, which allowed us to create a fast, responsive and dynamic user interface.
+* We used Auth0 for user authentication and authorization, allowing users to securely sign up, log in, and access their account information.
+* For the design and styling of the platform, we used ReactIcons, which provided us with a wide range of customizable icons that helped to create a visually appealing and user-friendly interface.
+* We used Git and GitHub for version control, allowing us to collaborate and track changes effectively during the development process.
+* We used Github's issue-tracking system to keep track of the progress and tasks.
+* We also used Github's pull request system for code review before merging the code.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Challenges we ran into
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+* One of the challenges we faced was integrating the shopping cart functionality with our recipe database. We had to ensure that the correct ingredients were added to the cart for each recipe and that the prices and quantities were accurate.
+* Another challenge was implementing the recipe search and filtering functionality. We had to make sure that the search results were relevant and that the filtering options were intuitive and easy to use.
+* We faced some challenges in implementing the user authentication and authorization using Auth0, as it was the first time we were using it. But, we went through the documentation and solved it.
+* Another challenge was in implementing the design and styling of the platform, as we wanted to create a visually appealing and user-friendly interface while keeping it simple.
+* There were some challenges while working with Git and GitHub, as it was the first time we were using it for version control. But, we went through the documentation and solved it.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+## Accomplishments that we're proud of
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+* We successfully integrated the shopping cart functionality with our recipe database, which allows users to easily add ingredients to their cart and purchase them.
+* We implemented a user-friendly recipe search and filtering functionality, which allows users to easily find the recipes they are looking for based on ingredients, cuisine, and dietary restrictions.
+* We successfully implemented user authentication and authorization using Auth0, which provides secure access to user account information.
+* We are proud of the design and styling of the platform, which we believe is visually appealing and user-friendly.
+* We are proud of the fact that we used Git and GitHub for version control, which helped us collaborate and track changes effectively during the development process.
+* We also succeeded in implementing features like saving favorite recipes, creating custom shopping lists, and tracking purchase history.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## What we learned
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+* We learned how to integrate a shopping cart functionality with a recipe database and how to ensure that the correct ingredients are added to the cart for each recipe and that the prices and quantities are accurate.
+* We learned how to implement a recipe search and filtering functionality and how to make sure that the search results are relevant and that the filtering options are intuitive and easy to use.
+* We learned how to use Auth0 for user authentication and authorization, which will be helpful for future projects as well.
+* We learned how to design and style a visually appealing and user-friendly interface while keeping it simple.
+* We learned how to use Git and GitHub for version control, which was a new experience for us.
+* We also learned how to work with Reactjs, React icons, and other technologies we used in the project.
+* We learned about the importance of user feedback, testing, and how to implement features based on it.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+## What's next for RecipeCart
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+* We plan to integrate with local grocery stores and supermarkets so that users can purchase ingredients directly from our platform and have them delivered to their doorstep.
+* We plan to add a community feature that allows users to share and rate recipes and follow other users to discover new recipes.
+* We are planning to add the feature of generating a grocery list based on the upcoming week's meals so that users can plan their grocery purchases in advance.
+* We plan to add more options for dietary restrictions and food allergies so that users with specific dietary needs can find recipes that are appropriate for them.
+* We plan to improve the user experience by adding more personalization features such as recipe recommendations based on the user's history and preferences.
+* We plan to develop a mobile app so that users can access RecipeCart on the go.
+* We are also planning to integrate with other cooking devices like smart ovens and cookers to make the cooking process even more seamless for our users.
