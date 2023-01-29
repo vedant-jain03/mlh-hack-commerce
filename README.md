@@ -62,7 +62,7 @@
 * We learned about the importance of user feedback, testing, and how to implement features based on it.
 
 
-## What's next for RecipeCart 🧑‍💻
+## What's next for KitchenCart 🧑‍💻
 
 * We plan to integrate with local grocery stores and supermarkets so that users can purchase ingredients directly from our platform and have them delivered to their doorstep.
 * We plan to add a community feature that allows users to share and rate recipes and follow other users to discover new recipes.
