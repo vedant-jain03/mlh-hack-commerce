@@ -1,4 +1,4 @@
-<h1 align="center"> ✨ Welcome to RecipeCart 🛒 🍱 ✨ 
+<h1 align="center"> ✨ Welcome to KitchenCart 🛒 🍱 ✨ 
 
 ![](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 </h1>
