@@ -10,7 +10,7 @@ function Navbar() {
   return (
     <div className='navbar'>
       <div className="left">
-        <span>KitchenCart</span>
+        <span>Kitchen🛒Cart</span>
       </div>
       <div className="right"
       style={{"display":"flex", "alignItems":"center"}}>
