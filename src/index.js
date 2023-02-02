@@ -8,8 +8,8 @@ console.log(window.location.origin);
 
 ReactDOM.render(
   <Auth0Provider
-    domain="dev-wom8eixet6jpwh6v.us.auth0.com"
-    clientId="qeYsXkQKWKPOsn08KnJktMUEmnBRNw0T"
+    domain=""
+    clientId=""
     authorizationParams={{
       redirect_uri: "https://vedant-jain03.github.io/mlh-hack-commerce/"
     }}
